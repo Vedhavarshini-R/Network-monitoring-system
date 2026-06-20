@@ -1,0 +1,31 @@
+<div class="analysis-page">
+
+  <h1>📊 Network Analysis</h1>
+
+  <!-- PIE CHART -->
+  <div class="chart-box">
+
+    <h2>Signal Strength Distribution</h2>
+
+    <canvas
+      baseChart
+      [data]="pieChartData"
+      [type]="pieChartType">
+    </canvas>
+
+  </div>
+
+  <!-- BAR CHART -->
+  <div class="chart-box">
+
+    <h2>Network Speed Comparison</h2>
+
+    <canvas
+      baseChart
+      [data]="barChartData"
+      [type]="barChartType">
+    </canvas>
+
+  </div>
+
+</div>

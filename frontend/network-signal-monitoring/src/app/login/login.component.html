@@ -1,0 +1,51 @@
+<div class="login-wrapper">
+
+  <div class="login-card" [class.shake]="shake">
+
+    <div class="login-header">
+      <h1>📡 Network Monitor</h1>
+      <p>Welcome back! Please login</p>
+    </div>
+
+    <!-- USERNAME -->
+    <div class="input-box">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="username" placeholder="Enter username" />
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="input-box">
+      <label>Password</label>
+
+      <div class="password-box">
+
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          [(ngModel)]="password"
+          placeholder="Enter password"
+        />
+
+        <span class="eye-icon" (click)="togglePassword()">
+          {{ showPassword ? '👁️' : '🙈' }}
+        </span>
+
+      </div>
+    </div>
+
+    <!-- REMEMBER ME -->
+    <div class="remember-box">
+      <input type="checkbox" [(ngModel)]="rememberMe" />
+      <label>Remember me</label>
+    </div>
+
+    <!-- LOGIN BUTTON -->
+    <button (click)="login()" class="login-btn">
+      Login
+    </button>
+
+    <!-- ERROR -->
+    <p class="error-msg">{{ error }}</p>
+
+  </div>
+
+</div>

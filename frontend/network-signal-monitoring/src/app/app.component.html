@@ -1,0 +1,91 @@
+<!-- 🔴 LOGIN PAGE (NO SIDEBAR) -->
+<div *ngIf="!auth.isLoggedIn()">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- 🟢 MAIN APP -->
+<div *ngIf="auth.isLoggedIn()" class="layout">
+
+  <!-- MENU BUTTON -->
+  <button
+  class="menu-btn"
+  [class.sidebar-open]="isSidebarOpen"
+  (click)="toggleSidebar()">
+
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+</button>
+
+  <!-- SIDEBAR -->
+  <div
+    class="sidebar"
+    [class.hide-sidebar]="!isSidebarOpen">
+
+    <h2>📡 Network Monitor</h2>
+
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">
+      🏠
+      <span>Dashboard</span>
+    </a>
+
+    <a
+      routerLink="/reports"
+      routerLinkActive="active">
+      📊
+      <span>Reports</span>
+    </a>
+
+    <a
+      routerLink="/analysis"
+      routerLinkActive="active">
+      📈
+      <span>Analysis</span>
+    </a>
+
+    <a
+      routerLink="/notifications"
+      routerLinkActive="active">
+      🔔
+      <span>Notifications</span>
+    </a>
+
+    <a
+      routerLink="/activity-logs"
+      routerLinkActive="active">
+      📝
+      <span>Activity Logs</span>
+    </a>
+
+    <a
+      routerLink="/settings"
+      routerLinkActive="active">
+      ⚙️
+      <span>Settings</span>
+    </a>
+
+    <a
+      (click)="logout()"
+      style="cursor:pointer;">
+      🚪
+      <span>Logout</span>
+    </a>
+
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div
+    class="main-content"
+    [class.expanded]="!isSidebarOpen">
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+</div>

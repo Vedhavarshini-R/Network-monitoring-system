@@ -1,0 +1,58 @@
+<div class="settings-page">
+
+  <h1>⚙ Settings</h1>
+
+  <!-- THEME -->
+  <div class="settings-box">
+
+    <h2>🎨 Theme Settings</h2>
+
+    <select (change)="changeTheme($event)">
+
+      <option value="light">
+        Light Theme
+      </option>
+
+      <option value="dark">
+        Dark Theme
+      </option>
+
+      <option value="system">
+        System Default
+      </option>
+
+    </select>
+
+  </div>
+
+  <!-- NOTIFICATIONS -->
+  <div class="settings-box">
+
+    <h2>🔔 Notifications</h2>
+
+    <label>
+
+      <input type="checkbox" checked>
+
+      Enable Notifications
+
+    </label>
+
+  </div>
+
+  <!-- PROFILE -->
+  <div class="settings-box">
+
+    <h2>👤 Profile</h2>
+
+    <input type="text" placeholder="Username">
+
+    <input type="password" placeholder="New Password">
+
+    <button>
+      Save Changes
+    </button>
+
+  </div>
+
+</div>

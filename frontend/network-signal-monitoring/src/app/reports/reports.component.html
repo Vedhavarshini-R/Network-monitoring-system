@@ -1,0 +1,96 @@
+<div class="reports-page">
+
+  <h1>📊 Network Reports Module</h1>
+
+  <!-- REPORT CARDS -->
+  <div class="report-cards">
+
+    <div class="report-card">
+      <h2>Total Reports</h2>
+      <p>{{ totalReports }}</p>
+    </div>
+
+    <div class="report-card success">
+      <h2>Strong Networks</h2>
+      <p>{{ strongNetworks }}</p>
+    </div>
+
+    <div class="report-card warning">
+      <h2>Moderate Networks</h2>
+      <p>{{ moderateNetworks }}</p>
+    </div>
+
+    <div class="report-card danger">
+      <h2>Weak Networks</h2>
+      <p>{{ weakNetworks }}</p>
+    </div>
+
+  </div>
+
+  <!-- NETWORK REPORT (DYNAMIC TABLE) -->
+  <div class="report-section">
+
+    <h2>📡 Network Performance Report</h2>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Network</th>
+          <th>Download Speed</th>
+          <th>Upload Speed</th>
+          <th>Signal Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of networkReports">
+
+          <td>{{ item.networkType }}</td>
+
+          <td>{{ item.downloadSpeed }} Mbps</td>
+
+          <td>{{ item.uploadSpeed }} Mbps</td>
+
+          <td>{{ item.signalStrength }}</td>
+
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- SIGNAL ANALYSIS -->
+  <div class="report-section">
+
+    <h2>📈 Signal Analysis Report</h2>
+
+    <ul>
+      <li *ngFor="let item of signalAnalysis">
+        {{ item }}
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- EXPORT REPORTS -->
+  <div class="report-section">
+
+    <h2>📥 Export Reports</h2>
+
+    <div class="export-buttons">
+
+      <button class="excel-btn" (click)="exportExcel()">
+        Export Excel
+      </button>
+
+      <button class="pdf-btn" (click)="exportPDF()">
+        Export PDF
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

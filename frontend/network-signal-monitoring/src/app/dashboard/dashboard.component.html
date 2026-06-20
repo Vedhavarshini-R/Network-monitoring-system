@@ -1,0 +1,179 @@
+<div class="dashboard-page">
+
+  <h1>📡 Network Monitoring Dashboard</h1>
+
+  <!-- TOP CARDS -->
+  <div class="dashboard-cards">
+
+    <div class="dashboard-card total">
+
+      <h2>Total Networks</h2>
+
+      <p>{{ totalNetworks }}</p>
+
+    </div>
+
+    <div class="dashboard-card strong">
+
+      <h2>Strong Signals</h2>
+
+      <p>{{ strongSignals }}</p>
+
+    </div>
+
+    <div class="dashboard-card moderate">
+
+      <h2>Moderate Signals</h2>
+
+      <p>{{ moderateSignals }}</p>
+
+    </div>
+
+    <div class="dashboard-card weak">
+
+      <h2>Weak Signals</h2>
+
+      <p>{{ weakSignals }}</p>
+
+    </div>
+
+  </div>
+
+  <!-- SEARCH -->
+  <input
+    type="text"
+    placeholder="🔍 Search"
+    [(ngModel)]="searchText"
+    class="search-box"
+  >
+
+  <!-- FORM -->
+  <div class="form-box">
+
+    <!-- NETWORK -->
+    <select [(ngModel)]="form.networkType">
+
+      <option value="" disabled selected>
+        Select Network Type
+      </option>
+
+      <option value="1G">1G</option>
+      <option value="2G">2G</option>
+      <option value="3G">3G</option>
+      <option value="4G">4G</option>
+      <option value="5G">5G</option>
+
+    </select>
+
+    <!-- DOWNLOAD -->
+    <input
+      type="number"
+      placeholder="Download Speed"
+      [(ngModel)]="form.downloadSpeed"
+      (input)="autoGenerateSignal()"
+    >
+
+    <!-- UPLOAD -->
+    <input
+      type="number"
+      placeholder="Upload Speed"
+      [(ngModel)]="form.uploadSpeed"
+      (input)="autoGenerateSignal()"
+    >
+
+    <!-- LOCATION -->
+    <input
+      type="text"
+      placeholder="Enter Location"
+      [(ngModel)]="form.location"
+    >
+
+    <!-- LOCATION BUTTON -->
+    <button
+      type="button"
+      class="location-btn"
+      (click)="getCurrentLocation()"
+    >
+      Get Location
+    </button>
+
+    <!-- ADD BUTTON -->
+    <button
+      class="add-btn"
+      (click)="addSignal()"
+    >
+      {{ isEditMode ? 'Update' : 'Add' }}
+    </button>
+
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-container">
+
+    <table>
+
+  <thead>
+
+    <tr>
+
+      <th>ID</th>
+      <th>Network Type</th>
+      <th>Download Speed</th>
+      <th>Upload Speed</th>
+      <th>Location</th>
+      <th>Signal Strength</th>
+      <th>Action</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let item of getFilteredData()">
+
+      <td>{{ item.id }}</td>
+
+      <td>{{ item.networkType }}</td>
+
+      <td>{{ item.downloadSpeed }}</td>
+
+      <td>{{ item.uploadSpeed }}</td>
+
+      <td>{{ item.location }}</td>
+
+      <td>
+
+        <span [ngClass]="getStatusClass(item.signalStrength)">
+          {{ item.signalStrength }}
+        </span>
+
+      </td>
+
+      <td>
+
+        <button
+          class="edit-btn"
+          (click)="editSignal(item)"
+        >
+          Edit
+        </button>
+
+        <button
+          class="delete-btn"
+          (click)="deleteSignal(item.id)"
+        >
+          Delete
+        </button>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+  </div>
+
+</div>

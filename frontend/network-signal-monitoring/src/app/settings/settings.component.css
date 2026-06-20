@@ -1,0 +1,46 @@
+.settings-page{
+  padding:20px;
+}
+
+.settings-page h1{
+  margin-bottom:30px;
+  color:#1e293b;
+}
+
+.settings-box{
+  background:white;
+  padding:25px;
+  margin-bottom:25px;
+  border-radius:12px;
+  box-shadow:0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.settings-box h2{
+  margin-bottom:15px;
+  color:#2563eb;
+}
+
+.settings-box select,
+.settings-box input{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  margin-bottom:15px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:15px;
+}
+
+.settings-box button{
+  background:#2563eb;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.settings-box button:hover{
+  background:#1d4ed8;
+}
